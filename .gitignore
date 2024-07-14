@@ -1,0 +1,9 @@
+.perov_env
+./perov_env
+perov_env
+./node_modules
+/node_modules
+*/node_modules
+build
+./build
+*/build
