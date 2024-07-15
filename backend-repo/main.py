@@ -18,7 +18,8 @@ col_data = joblib.load("./utils/serial_data/col_bool_mod.z")
 app = FastAPI()
 
 origins = [
-    "http://localhost:3000",
+    "http://localhost:6969",
+    "http://127.0.0.1:6969",
 ]
 
 app.add_middleware(CORSMiddleware,
