@@ -79,9 +79,13 @@ export function Home() {
         </div>
         <div className="text_container">
           <Title />
-          <HomeInfo />
-          <Predict_btn />
-          <Credits />
+          <div className="home-data-container">
+            <HomeInfo />
+            <Predict_btn />
+          </div>
+          <div className="bottom-container">
+            <Credits />
+          </div>
         </div>
       </div>
     </Suspense>);

@@ -1,11 +1,18 @@
 @import url("https:\/\/fonts.googleapis.com\/css?family=Monda:700");
 
+:root{
+    --back-theme-color: #55ffc94d;
+}
+
 #main_body {
     overflow-y: scroll;
     width: 100vw;
     height: 100vh;
     margin: 0;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 body {
@@ -17,19 +24,13 @@ body {
 }
 
 #title {
-    position: relative;
-    width: 485px;
-    height: 254px;
-    left: 10vw;
-    top: 128px;
-
     font-family: 'Monda';
     font-style: normal;
     font-weight: 700;
     font-size: 40px;
     line-height: 65px;
-
     color: #FFFFFF;
+    text-decoration: none !important;
 }
 
 @media (max-width: 420px) {
@@ -42,15 +43,18 @@ body {
 }
 
 #input_form {
-    padding-left: 10vw;
-    padding-top: 200px;
+    width: 50vw;
+    min-width: 500px;
 }
 
 #colName {
-    font-weight: 150;
+    font-weight: 400;
     font-size: 20px;
-    padding-top: 30px;
     color: blanchedalmond;
+}
+
+.numeric-container, .cat-container{
+    margin: 5vh 2vw;
 }
 
 #limiter {
@@ -71,7 +75,7 @@ body {
 #result_text_main {
     display: flex;
     font-size: 25px;
-    color: #ff0095;
+    color: #4effbb;
 }
 
 #submit_btn {
@@ -86,6 +90,7 @@ body {
     color: #000;
     font-weight: 600;
     transition: box-shadow 0.2s ease-out;
+    border-radius: 5px;
 }
 
 #submit_btn:hover {
@@ -107,13 +112,14 @@ body {
 }
 
 .text_box {
-    width: 100px;
+    width: 200px;
     height: 20px;
-    background: #041e33;
+    background: var(--back-theme-color);
     font-size: 20px;
     color: white;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .1);
     border: 0;
+    border-radius: 5px;
     outline: 0;
     padding: 15px 18px;
     font-size: large;
@@ -121,11 +127,9 @@ body {
 }
 
 
-
-
 .cat_drop {
-    background-color: #041e33;
-    color: white;
+    background: var(--back-theme-color);
+    color:  white;
     padding: 12px;
     width: 250px;
     border: none;
@@ -133,6 +137,13 @@ body {
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
     appearance: button;
     outline: none;
+    border-radius: 5px;
+}
+
+.cat_drop option{
+    background-color: #309273 !important;
+    color: black;
+    margin: 10px;
 }
 
 .cat_drop::before {
@@ -146,7 +157,7 @@ body {
     text-align: center;
     font-size: 28px;
     line-height: 45px;
-    color: rgba(255, 255, 255, 0.5);
+    color: black;
     background-color: rgba(255, 255, 255, 0.1);
     pointer-events: none;
 }
@@ -154,4 +165,8 @@ body {
 .cat_drop:hover::before {
     color: rgba(255, 255, 255, 0.6);
     background-color: rgba(255, 255, 255, 0.2);
+}
+
+#cat_name{
+    color: white;
 }

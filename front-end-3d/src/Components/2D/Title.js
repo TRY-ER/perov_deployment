@@ -7,10 +7,8 @@ export function Title() {
   return (
     <>
       <div id="home_title">
-        <h1>PEROVSKITE <br />
-          CRYSTAL STRUCTURE</h1>
-        <br />
-        <br />
+        <h1>POWER CONVERSION EFFICIENCY<br />
+          PREDICTOR FOR <br />PEROVSKITE SOLAR CELLS</h1>
       </div>
     </>
   );
