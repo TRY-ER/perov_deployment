@@ -5,7 +5,7 @@ from .feature_distribution import feature_dict, get_all_param_list
 
 
 
-def preprocess(data: list) -> pd.DataFrame:
+def preprocess(data):
     '''
     This function is reponsible to preprocess the input data and return it in a model compatible form !
     '''

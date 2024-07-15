@@ -35,7 +35,7 @@ async def test():
 
 
 @app.post("/predict")
-async def provide(data):
+async def provide(data: list):
     '''
     This function returns the output data at the API endpoint as GET response
     '''
@@ -43,7 +43,7 @@ async def provide(data):
     return output
 
 
-def predict_main(df: pd.DataFrame) -> np.array:
+def predict_main(df):
     '''
     This function makes the prediction from given dataframe
     '''
@@ -58,7 +58,7 @@ def predict_main(df: pd.DataFrame) -> np.array:
     return np.mean(result_li)
 
 
-def main(data: list) -> dict:
+def main(data):
     '''
     This functions conducts major operations by combining different other functions
     '''
