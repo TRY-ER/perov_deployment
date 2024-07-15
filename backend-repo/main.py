@@ -7,16 +7,13 @@ import os
 from utils.preprocess import preprocess
 from utils.feature_distribution import feature_dict
 import sklearn
-
-# Todos:
-# 1. Need to setup a pipeline to categorize the features and create a relevant json
-# 2. Send it in the get request
-# 3. parse in the frontend
+import pandas as pd
 
 col_data = joblib.load("./utils/serial_data/col_bool_mod.z")
 
 app = FastAPI()
 
+# Setting up CORS origin
 origins = [
     "http://localhost:6969",
     "http://127.0.0.1:6969",
@@ -31,34 +28,42 @@ app.add_middleware(CORSMiddleware,
 
 @app.get("/predict")
 async def test():
+    '''
+    This function returns the json encoded feature data at the API endpoint as GET response
+    '''
     return jsonable_encoder({"feat_list": col_data, "feat_dict": feature_dict})
 
 
 @app.post("/predict")
-async def provide(data: list):
+async def provide(data):
+    '''
+    This function returns the output data at the API endpoint as GET response
+    '''
     output = main(data)
     return output
 
 
-def predict_main(df):
+def predict_main(df: pd.DataFrame) -> np.array:
+    '''
+    This function makes the prediction from given dataframe
+    '''
     num_folds = len(os.listdir("./models/xgboost_old")) - 3
     result_li = []
     for fold in range(num_folds):
-        print(f"predicting for fold {fold} / {num_folds}")
         model = joblib.load(
             f"./models/xgboost_old/{fold}_xg_boost_reg_no_optim/{fold}_model.z"
         )
-        print(df.shape)
         result = model.predict(df)
-        print(result)
         result_li.append(result)
     return np.mean(result_li)
 
 
-def main(data):
+def main(data: list) -> dict:
+    '''
+    This functions conducts major operations by combining different other functions
+    '''
     df = preprocess(data)
     res = predict_main(df)
-    print(res)
     return {
         "value":
         f"{np.float64(res).item():.3f}"

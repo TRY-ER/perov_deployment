@@ -10,6 +10,7 @@ import {
 
 
 export function Perov() {
+  //  Loading the gltf file created
     const gltf = useLoader(
       GLTFLoader,
       process.env.PUBLIC_URL + "gltf_models/perov_cube_added.gltf"
@@ -17,6 +18,7 @@ export function Perov() {
 
     const MyMesh = useRef();
 
+    // setting up rotation frame
     useFrame(({clock}) => {
       MyMesh.current.rotation.y = clock.getElapsedTime()*0.04;
       MyMesh.current.rotation.z = clock.getElapsedTime()*0.04;
@@ -32,26 +34,15 @@ export function Perov() {
       gltf.scene.traverse((object) => {
         if (object instanceof Mesh) {
           object.castShadow = true;
-          // object.receiveShadow = true;
           object.material.envMapIntensity = 1;
         }
       });
     }, [gltf]);
 
-    // const object = new THREE.Mesh(gltf, material);
-  
-    // useFrame((state, delta) => {
-    //   let t = state.clock.getElapsedTime();
-  
-    //   let group = gltf.scene.children[0].children[0].children[0];
-    //   group.children[0].rotation.x = t * 2;
-    //   group.children[2].rotation.x = t * 2;
-    //   group.children[4].rotation.x = t * 2;
-    //   group.children[6].rotation.x = t * 2;
-    // });
     
     return (
     <Suspense fallback={null} >
+      {/* Adding some rotational degree of freedom to the scene */}
       <OrbitControls 
         enableRotate = {true}
         enableZoom = {false}

@@ -35,19 +35,14 @@ export function Home() {
     <Suspense fallback={null}>
       <div className="main_container_home">
         <div className="canvas_container">
+          {/* Setting up the canvas */}
           <Canvas shadows gl raycaster gl2={true} className="canvas_obj">
-            {/* <OrbitControls 
-        enableRotate = {true}
-        enableZoom = {false}
-        enablePan = {false}
-        target={[0, 0.35, 0]}
-        maxPolarAngle={1.45}
-      /> */}
+            {/* Setting up the perspective camera*/}
             <PerspectiveCamera
               makeDefault fov={30} position={[-5, -1, -45]} />
 
             <color args={[0, 0, 0]} attach="background" />
-
+            {/* Setting up the cube camera to control the resolution and texture inside a volume */}
             <CubeCamera resolution={256} frames={Infinity}>
               {(texture) => (
                 <>
@@ -55,6 +50,7 @@ export function Home() {
                 </>
               )}
             </CubeCamera>
+            {/* Adding spotlights to the scene */}
             <spotLight
               color={colorl1}
               intensity={10}
@@ -73,10 +69,12 @@ export function Home() {
               castShadow
               shadow-bias={-0.0001}
             />
+            {/* Adding custom 3D elements to the canvas  */}
             <Ground />
             <Perov />
           </Canvas>
         </div>
+        {/* Adding 2D elements to the screen */}
         <div className="text_container">
           <Title />
           <div className="home-data-container">

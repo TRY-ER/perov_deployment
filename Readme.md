@@ -11,6 +11,7 @@ Welcome to the PCE prediction project for Perovskite Solar Cells (PSCs)! This pr
   - [Using Docker](#using-docker)
 - [Usage](#usage)
 - [Sample Deployment](#sample-deployment)
+- [Technology Used](#technology-used)
 - [Citation](#citation)
 - [License](#license)
 
@@ -58,6 +59,7 @@ Follow the steps below to set up and run the project using Docker:
 
 Once the application is up and running, you can navigate to the React frontend URL (`http://localhost:6969`) to access the web interface. Here, you can input the experimental and compositional data required for the PCE prediction and get the results instantly.
 
+
 ## Sample Deployment
 
 Here's a screenshot of the application in action:
@@ -65,14 +67,23 @@ Here's a screenshot of the application in action:
 Home
 ![Sample Deployment](images/home-image.png)
 
-Deployment
+Prediction
 ![Sample Deployment](images/deploy-sample-image.png)
+
+## Technology Used
+
+![React](https://img.shields.io/badge/-React-61DAFB?&logo=React&logoColor=white)
+![FastAPI](https://img.shields.io/badge/-FastAPI-009688?&logo=FastAPI&logoColor=white)
+![Docker](https://img.shields.io/badge/-Docker-2496ED?&logo=Docker&logoColor=white)
+![Python](https://img.shields.io/badge/-Python-3776AB?&logo=Python&logoColor=white)
+![Three.js](https://img.shields.io/badge/-Three.js-000000?&logo=Three.js&logoColor=white)
 
 ## Citation
 
 If you use this project in your research, please cite the following paper:
 
-```@article{mohanty2023comprehensive,
+```bibtex
+@article{mohanty2023comprehensive,
   title={Comprehensive Machine Learning Pipeline for Prediction of Power Conversion Efficiency in Perovskite Solar Cells},
   author={Mohanty, Debasish and Palai, Akshaya Kumar},
   journal={Advanced Theory and Simulations},
@@ -81,5 +92,9 @@ If you use this project in your research, please cite the following paper:
   pages={2300309},
   year={2023},
   publisher={Wiley Online Library}
-}```
+}
+```
 
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
